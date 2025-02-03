@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model RawMaterial {
+  material_id            String                  @id @db.VarChar(20)
+  material_name          String                  @db.VarChar(20)
+  type                   String                  @db.VarChar(30)
+  qty_available          Float                   @db.Float
+  unit                   String                  @db.VarChar(6)
+  materialReceiveDetails MaterialReceiveDetail[]
+}
+
+model Supplier {
+  sup_id                 String                  @id @db.VarChar(6)
+  company_name           String                  @db.VarChar(20)
+  company_email          String                  @db.VarChar(50)
+  materialReceiveDetails MaterialReceiveDetail[]
+}
+
+model MaterialReceiveDetail {
+  received_id   String      @id @db.VarChar(10)
+  sup_id        String      @db.VarChar(6)
+  m_id          String      @db.VarChar(6)
+  material_name String      @db.VarChar(20)
+  type          String      @db.VarChar(30)
+  received_qty  Float       @db.Float
+  unit          String      @db.VarChar(6)
+  received_date DateTime? // Prisma uses DateTime for dates and times
+  supplier      Supplier    @relation(fields: [sup_id], references: [sup_id], onDelete: Cascade, onUpdate: Cascade)
+  material      RawMaterial @relation(fields: [m_id], references: [material_id], onDelete: Cascade, onUpdate: Cascade)
+}

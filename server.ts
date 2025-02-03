@@ -3,19 +3,20 @@ import materialRoute from "./routes/material-route";
 
 const app = express()
 
+app.use(express.json())
 
-const itemList = [
-    {id:1,name:'thisaru'},
-    {id:2,name:'kasun'},
-    {id:3,name:'tashen'},
-    {id:4,name:'ashan'},
-]
-const item='thisaru'
+app.use('/',(req, res,next)=>{
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, content-type');
+    next();
+})
+
 
 app.get('/test',(req, res)=>{
-    // console.log(req)
-    res.json(itemList)
+    res.json('tested successfully !!')
 })
+
 app.use('/material',materialRoute)
 
 app.listen(3000,()=>{
