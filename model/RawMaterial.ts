@@ -1,8 +1,10 @@
+import MaterialReceivedDetails from "./MaterialReceivedDetails";
+
 export default class RawMaterial {
     material_id!:string
     material_name!:string
     type!:string
     qty_available!:number
     unit!:string
-    // materialReceiveDetails!:
+    // materialReceiveDetails!:MaterialReceivedDetails
 }

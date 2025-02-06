@@ -1,5 +1,6 @@
 import express from 'express'
 import materialRoute from "./routes/material-route";
+import supplierRoute from "./routes/supplier-route";
 
 const app = express()
 
@@ -18,6 +19,7 @@ app.get('/test',(req, res)=>{
 })
 
 app.use('/material',materialRoute)
+app.use('/supplier',supplierRoute)
 
 app.listen(3000,()=>{
     console.log('app server is running successfully !!')
