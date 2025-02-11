@@ -1,7 +1,16 @@
 import express from "express";
-import {materialAdd, materialDelete, materialUpdate} from "../database/material-data-store";
+import {
+    addMaterialReceivedDetails,
+    getAllMaterial,
+    getMaterial,
+    materialAdd,
+    materialDelete,
+    materialUpdate
+} from "../database/material-data-store";
 import RawMaterial from "../model/RawMaterial";
 import {create} from "node:domain";
+import e from "express";
+import MaterialReceivedDetails from "../model/MaterialReceivedDetails";
 
 const router = express.Router()
 
@@ -23,10 +32,10 @@ router.post('/addMaterial' , async(req, res)=>{
     console.log(req.body)
     try{
         const addedMaterial = await materialAdd(newMaterial)
-        res.status(201).send()
+        res.status(201).send(addedMaterial)
     }catch (err) {
         console.log('Error adding material -> ',err)
-        res.status(400).send('error adding Material')
+        res.status(400).send(err)
     }
 
 })
@@ -37,20 +46,54 @@ router.put('/updateMaterial/:material_id',async (req, res)=>{
 
     try{
         const updatedMaterial = await materialUpdate(material_id , updateMaterial)
-        res.json(updatedMaterial)
+        updatedMaterial ? res.json(updatedMaterial):res.status(404).send()
     }catch (err){
-        console.log('Error Updating material -> ',err)
+        res.status(500).send()
     }
 })
 
 router.delete('/deleteMaterial/:material_id',async (req, res)=>{
     const material_id = req.params.material_id
     try{
-        const deletedMaterial = materialDelete(material_id);
-        res.send('Material Deleted Successfully !!')
+        await materialDelete(material_id);
+        res.status(204).send('Material Deleted Successfully !!')
     }catch (err) {
-        console.log('Error delete Material !!')
+        res.status(404).send()
     }
 })
+
+
+router.get('/getMaterial/:id',async (req,res)=>{
+    const material_id = req.params.id
+    try{
+        const relevantMaterial:RawMaterial|null = await getMaterial(material_id);
+        relevantMaterial ? res.json(relevantMaterial): res.status(404).send()
+    }catch (err) {
+        res.status(500).send()
+    }
+})
+
+router.get('/getAllMaterial',async (req,res)=>{
+    try{
+        const allMaterials:RawMaterial[]|null = await getAllMaterial();
+        allMaterials ? res.json(allMaterials): res.status(404).send()
+    }catch (err) {
+        res.status(500).send()
+    }
+})
+
+
+router.post('/addMaterialReceivedDetails',async(req, res)=>{
+    const addingMRDetails:MaterialReceivedDetails = req.body
+    console.log(addingMRDetails.received_date)
+    try {
+        await addMaterialReceivedDetails(addingMRDetails)
+        res.status(201).send()
+    }  catch (err){
+        res.status(500).json(err)
+    }
+})
+
+
 
 export default router

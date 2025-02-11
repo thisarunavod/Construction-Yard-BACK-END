@@ -14,16 +14,19 @@ datasource db {
 }
 
 model RawMaterial {
-  material_id            String                  @id @db.VarChar(20)
-  material_name          String                  @db.VarChar(20)
-  type                   String                  @db.VarChar(30)
-  qty_available          Float                   @db.Float
-  unit                   String                  @db.VarChar(6)
-  materialReceiveDetails MaterialReceiveDetail[]
+  material_id                 String                        @id @db.VarChar(20)
+  material_name               String                        @db.VarChar(20)
+  type                        String                        @db.VarChar(30)
+  qty_available               Float                         @db.Float
+  unit                        String                        @db.VarChar(10)
+  materialReceiveDetails      MaterialReceiveDetail[]
+  ProjectMaterialRequirements ProjectMaterialRequirements[]
+
+  MaterialSendDetail MaterialSendDetail[]
 }
 
 model Supplier {
-  sup_id                 String                  @id @db.VarChar(6)
+  sup_id                 String                  @id @db.VarChar(20)
   company_name           String                  @db.VarChar(20)
   company_email          String                  @db.VarChar(50)
   materialReceiveDetails MaterialReceiveDetail[]
@@ -31,13 +34,70 @@ model Supplier {
 
 model MaterialReceiveDetail {
   received_id   String      @id @db.VarChar(10)
-  sup_id        String      @db.VarChar(6)
-  m_id          String      @db.VarChar(6)
+  sup_id        String      @db.VarChar(20)
+  m_id          String      @db.VarChar(20)
   material_name String      @db.VarChar(20)
   type          String      @db.VarChar(30)
   received_qty  Float       @db.Float
-  unit          String      @db.VarChar(6)
+  unit          String      @db.VarChar(10)
   received_date DateTime? // Prisma uses DateTime for dates and times
   supplier      Supplier    @relation(fields: [sup_id], references: [sup_id], onDelete: Cascade, onUpdate: Cascade)
   material      RawMaterial @relation(fields: [m_id], references: [material_id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Project {
+  project_no                  String                        @id
+  project_name                String                        @db.VarChar(75)
+  location                    String                        @db.VarChar(75)
+  start_date                  DateTime?
+  completion_date             DateTime?
+  ProjectMaterialRequirements ProjectMaterialRequirements[]
+
+  MaterialSendDetail MaterialSendDetail[]
+}
+
+model ProjectMaterialRequirements {
+  project_no   String @db.VarChar(20)
+  project_name String @db.VarChar(75)
+  m_id         String @db.VarChar(20)
+  issue_qty    Float  @db.Float
+  required_qty Float  @db.Float
+  unit         String @db.VarChar(10)
+
+  project  Project     @relation(fields: [project_no], references: [project_no], onDelete: NoAction, onUpdate: NoAction)
+  material RawMaterial @relation(fields: [m_id], references: [material_id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@id([project_no, m_id])
+}
+
+model Employee {
+  e_id         String    @id @db.VarChar(10)
+  e_name       String    @db.VarChar(25)
+  e_address    String    @db.VarChar(50)
+  job_title    String    @db.VarChar(15)
+  availability String?   @db.VarChar(5)
+  vehicles     Vehicle[]
+}
+
+model Vehicle {
+  v_name              String               @db.VarChar(20)
+  v_id                String               @id @db.VarChar(15)
+  e_id                String?              @db.VarChar(10)
+  root_status         String               @db.VarChar(25)
+  driver_availability String?              @db.VarChar(5)
+  remove_or_working   String               @db.VarChar(10)
+  employee            Employee?            @relation(fields: [e_id], references: [e_id], onDelete: Cascade, onUpdate: Cascade)
+  materialSendDetails MaterialSendDetail[]
+}
+
+model MaterialSendDetail {
+  issue_id   String      @id @db.VarChar(6)
+  m_id       String      @db.VarChar(20)
+  project_no String      @db.VarChar(20)
+  issue_qty  Float       @db.Float
+  v_id       String      @db.VarChar(15)
+  issue_date DateTime?
+  material   RawMaterial @relation(fields: [m_id], references: [material_id], onDelete: Cascade, onUpdate: Cascade)
+  project    Project     @relation(fields: [project_no], references: [project_no], onDelete: Cascade, onUpdate: Cascade)
+  vehicle    Vehicle     @relation(fields: [v_id], references: [v_id], onDelete: Cascade, onUpdate: Cascade)
 }
