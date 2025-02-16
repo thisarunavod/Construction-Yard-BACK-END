@@ -75,8 +75,6 @@ export async function addMaterialReceivedDetails(details:MaterialReceivedDetails
     let qtyAvailable: number = 0;
     relevantMaterial ? qtyAvailable=(relevantMaterial.qty_available+details.received_qty):qtyAvailable
 
-
-
     try{
         const addedMaterialReceivedDetails = await prisma.$transaction(async(tx)=>{
 

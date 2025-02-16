@@ -44,9 +44,9 @@ export async function deleteSupplier(id:string){
 }
 
 
-export function getSupplier(id:string){
+export async function getSupplier(id:string){
     try {
-        return prisma.supplier.findUnique(
+        return await prisma.supplier.findUnique(
             { where: {sup_id:id}}
         )
     }catch (err) {
@@ -54,9 +54,9 @@ export function getSupplier(id:string){
     }
 }
 
-export function getAllSupplier(){
+export async function getAllSupplier(){
     try {
-        return prisma.supplier.findMany()
+        return await prisma.supplier.findMany()
     }catch (err) {
         throw err
     }
