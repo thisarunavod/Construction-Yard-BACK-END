@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd7264ed-10e6-4d47-a798-673f3950f32b" name="Changes" comment=" implementing project crud">
-      <change afterPath="$PROJECT_DIR$/database/employee-data-store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/vehicle-data-store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/Employee.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/Vehicle.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/project-route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/vehicle-route.ts" afterDir="false" />
+    <list default="true" id="cd7264ed-10e6-4d47-a798-673f3950f32b" name="Changes" comment=" normally implemented Employee . Vehicle">
+      <change afterPath="$PROJECT_DIR$/database/project-data-store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/material-data-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/material-data-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/supplier-data-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/supplier-data-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/employer-route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/employer-route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/model/Project.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/project-route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/project-route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +104,10 @@
       <workItem from="1739074248848" duration="25103000" />
       <workItem from="1739416743534" duration="2440000" />
       <workItem from="1739589361697" duration="4479000" />
-      <workItem from="1739674122811" duration="5158000" />
+      <workItem from="1739674122811" duration="7669000" />
+      <workItem from="1739714188629" duration="5974000" />
+      <workItem from="1739770890192" duration="46000" />
+      <workItem from="1739935068696" duration="2807000" />
     </task>
     <task id="LOCAL-00001" summary="start implementing supplier crud">
       <option name="closed" value="true" />
@@ -143,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739244747489</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary=" normally implemented Employee . Vehicle">
+      <option name="closed" value="true" />
+      <created>1739680729137</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739680729137</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +158,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start implementing supplier crud" />
     <MESSAGE value=" implementing project crud" />
-    <option name="LAST_COMMIT_MESSAGE" value=" implementing project crud" />
+    <MESSAGE value=" normally implemented Employee . Vehicle" />
+    <option name="LAST_COMMIT_MESSAGE" value=" normally implemented Employee . Vehicle" />
   </component>
 </project>

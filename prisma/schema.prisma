@@ -52,8 +52,7 @@ model Project {
   start_date                  DateTime?
   completion_date             DateTime?
   ProjectMaterialRequirements ProjectMaterialRequirements[]
-
-  MaterialSendDetail MaterialSendDetail[]
+  MaterialSendDetail          MaterialSendDetail[]
 }
 
 model ProjectMaterialRequirements {

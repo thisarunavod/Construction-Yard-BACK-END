@@ -3,6 +3,7 @@ import materialRoute from "./routes/material-route";
 import supplierRoute from "./routes/supplier-route";
 import employerRoute from "./routes/employer-route";
 import vehicleRoute from "./routes/vehicle-route";
+import projectRoute from "./routes/project-route";
 
 const app = express()
 
@@ -24,6 +25,7 @@ app.use('/material',materialRoute)
 app.use('/supplier',supplierRoute)
 app.use('/employee',employerRoute)
 app.use('/vehicle',vehicleRoute)
+app.use('/project',projectRoute)
 
 app.listen(3000,()=>{
     console.log('app server is running successfully !!')
