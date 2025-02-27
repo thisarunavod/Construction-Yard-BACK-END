@@ -13,6 +13,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  user_id   String @id
+  user_name String @unique
+  role      String
+  password  String
+}
+
 model RawMaterial {
   material_id                 String                        @id @db.VarChar(20)
   material_name               String                        @db.VarChar(20)

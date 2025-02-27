@@ -4,10 +4,19 @@ import supplierRoute from "./routes/supplier-route";
 import employerRoute from "./routes/employer-route";
 import vehicleRoute from "./routes/vehicle-route";
 import projectRoute from "./routes/project-route";
-
+import authRoute, {authenticateToken} from "./routes/auth-route";
+import dotenv from "dotenv";
+import cors from 'cors';
+dotenv.config();
 const app = express()
 
 app.use(express.json())
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET','POST','PUT','DELETE'],
+    credentials: true,
+}));
 
 app.use('/',(req, res,next)=>{
     res.header("Access-Control-Allow-Origin", "*");
@@ -16,6 +25,8 @@ app.use('/',(req, res,next)=>{
     next();
 })
 
+app.use('/auth',authRoute)
+app.use(authenticateToken)
 
 app.get('/test',(req, res)=>{
     res.json('tested successfully !!')

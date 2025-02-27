@@ -4,13 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd7264ed-10e6-4d47-a798-673f3950f32b" name="Changes" comment=" normally implemented Employee . Vehicle">
-      <change afterPath="$PROJECT_DIR$/database/project-data-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="cd7264ed-10e6-4d47-a798-673f3950f32b" name="Changes" comment=" security branch start">
+      <change afterPath="$PROJECT_DIR$/database/user-data-store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/User.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/auth-route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec3e3ab4-ee05-49b2-851a-d9b36c10b2b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ec3e3ab4-ee05-49b2-851a-d9b36c10b2b8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/model/Project.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/assert.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/assert.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/fs/promises.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/fs/promises.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/module.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/sqlite.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/sqlite.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/stream.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/stream.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/test.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/test.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/vm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/vm.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/project-route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/project-route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/material-route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/material-route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +66,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ToolWindow.Run.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;security&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -108,6 +122,12 @@
       <workItem from="1739714188629" duration="5974000" />
       <workItem from="1739770890192" duration="46000" />
       <workItem from="1739935068696" duration="2807000" />
+      <workItem from="1740496560560" duration="5086000" />
+      <workItem from="1740539073289" duration="435000" />
+      <workItem from="1740539515819" duration="6006000" />
+      <workItem from="1740545764449" duration="6519000" />
+      <workItem from="1740552307109" duration="31949000" />
+      <workItem from="1740659950134" duration="9376000" />
     </task>
     <task id="LOCAL-00001" summary="start implementing supplier crud">
       <option name="closed" value="true" />
@@ -149,7 +169,31 @@
       <option name="project" value="LOCAL" />
       <updated>1739680729137</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=" normally implemented">
+      <option name="closed" value="true" />
+      <created>1740496656881</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740496656881</updated>
+    </task>
+    <task id="LOCAL-00007" summary=" normally implemented">
+      <option name="closed" value="true" />
+      <created>1740534141925</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740534141925</updated>
+    </task>
+    <task id="LOCAL-00008" summary=" security branch start">
+      <option name="closed" value="true" />
+      <created>1740534609984</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740534609984</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +203,8 @@
     <MESSAGE value="start implementing supplier crud" />
     <MESSAGE value=" implementing project crud" />
     <MESSAGE value=" normally implemented Employee . Vehicle" />
-    <option name="LAST_COMMIT_MESSAGE" value=" normally implemented Employee . Vehicle" />
+    <MESSAGE value=" normally implemented" />
+    <MESSAGE value=" security branch start" />
+    <option name="LAST_COMMIT_MESSAGE" value=" security branch start" />
   </component>
 </project>
