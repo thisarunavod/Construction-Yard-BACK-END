@@ -97,7 +97,7 @@ model Vehicle {
 }
 
 model MaterialSendDetail {
-  issue_id   String      @id @db.VarChar(6)
+  issue_id   String      @id @db.VarChar(20)
   m_id       String      @db.VarChar(20)
   project_no String      @db.VarChar(20)
   issue_qty  Float       @db.Float

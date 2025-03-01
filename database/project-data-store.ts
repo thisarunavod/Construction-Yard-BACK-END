@@ -4,6 +4,7 @@ import {getMaterialReceivedDetails} from "./material-data-store";
 import ProjectDetails from "../model/projectDetails";
 import {MaterialRequirement} from "../model/MaterialRequirement";
 import {json} from "node:stream/consumers";
+import MaterialSendDetails from "../model/materialSendDetails";
 
 const prisma = new PrismaClient()
 
@@ -84,6 +85,7 @@ export async function getProject (pNo:string){
         throw err
     }
 }
+
 export async function getAllProject (){
     try {
         return await prisma.project.findMany()
@@ -91,6 +93,7 @@ export async function getAllProject (){
         throw err
     }
 }
+
 export async function getAllProjectMaterialRequirements (){
     try {
         return await prisma.projectMaterialRequirements.findMany()
@@ -98,5 +101,19 @@ export async function getAllProjectMaterialRequirements (){
         throw err
     }
 }
+
+export async function getRequirement(details:MaterialSendDetails){
+    try {
+        return await prisma.projectMaterialRequirements.findFirst({
+            where: {
+                project_no:details.project_no,
+                m_id:details.m_id
+            },
+        })
+    }catch (err){
+        throw err
+    }
+}
+
 
 

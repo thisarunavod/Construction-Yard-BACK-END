@@ -1,7 +1,7 @@
 import express from "express";
 import {
-    addMaterialReceivedDetails,
-    getAllMaterial, getAllMaterialReceivedDetails,
+    addMaterialReceivedDetails, addMaterialSendDetails,
+    getAllMaterial, getAllMaterialReceivedDetails, getAllMaterialSendDetails,
     getMaterial,
     materialAdd,
     materialDelete,
@@ -11,6 +11,7 @@ import RawMaterial from "../model/RawMaterial";
 import {create} from "node:domain";
 import e from "express";
 import MaterialReceivedDetails from "../model/MaterialReceivedDetails";
+import MaterialSendDetails from "../model/materialSendDetails";
 
 const router = express.Router()
 
@@ -103,6 +104,29 @@ router.get('/getAllMaterialReceivedDetails',async(req, res)=>{
         res.status(500).json(err)
     }
 })
+
+router.post('/addMaterialSendDetails',async(req, res)=>{
+    const addingMSDetails:MaterialSendDetails = req.body
+    console.log(addingMSDetails)
+    try {
+        const sendDetails = await addMaterialSendDetails(addingMSDetails)
+        res.status(200).json(sendDetails)
+    }  catch (err){
+        console.log(err)
+        res.status(500).json(err)
+    }
+})
+
+router.get('/getAllMaterialSendDetails',async(req, res)=>{
+    try {
+        const detailsList = await getAllMaterialSendDetails()
+        detailsList ? res.status(200).json(detailsList):res.status(404).json()
+    }  catch (err){
+        res.status(500).json(err)
+    }
+})
+
+
 
 
 export default router

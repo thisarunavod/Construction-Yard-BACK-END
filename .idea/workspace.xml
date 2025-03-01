@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd7264ed-10e6-4d47-a798-673f3950f32b" name="Changes" comment=" security branch implement">
-      <change afterPath="$PROJECT_DIR$/model/MaterialRequirement.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/ProjectMaterialRequirement.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/projectDetails.ts" afterDir="false" />
+    <list default="true" id="cd7264ed-10e6-4d47-a798-673f3950f32b" name="Changes" comment="  material requirements and some yard projects page implements">
+      <change afterPath="$PROJECT_DIR$/model/materialSendDetails.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/employee-data-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/employee-data-store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/material-data-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/material-data-store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/project-data-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/project-data-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/vehicle-data-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/vehicle-data-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/model/Vehicle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth-route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth-route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/employer-route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/employer-route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/material-route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/material-route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/project-route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/project-route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/vehicle-route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/vehicle-route.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +116,7 @@
       <workItem from="1740659950134" duration="14286000" />
       <workItem from="1740708593187" duration="19922000" />
       <workItem from="1740762979023" duration="7305000" />
-      <workItem from="1740800216862" duration="13221000" />
+      <workItem from="1740800216862" duration="22894000" />
     </task>
     <task id="LOCAL-00001" summary="start implementing supplier crud">
       <option name="closed" value="true" />
@@ -198,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740671999821</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="  material requirements and some yard projects page implements">
+      <option name="closed" value="true" />
+      <created>1740821243800</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1740821243800</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +211,7 @@
     <MESSAGE value=" normally implemented" />
     <MESSAGE value=" security branch start" />
     <MESSAGE value=" security branch implement" />
-    <option name="LAST_COMMIT_MESSAGE" value=" security branch implement" />
+    <MESSAGE value="  material requirements and some yard projects page implements" />
+    <option name="LAST_COMMIT_MESSAGE" value="  material requirements and some yard projects page implements" />
   </component>
 </project>
