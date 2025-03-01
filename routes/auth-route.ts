@@ -33,12 +33,12 @@ router.post('/login',async (req, res) => {
 })
 router.post("/register", async (req, res) => {
     console.log('Register', req.body);
-    const id = req.body.user.id;
+    /*const id = req.body.user.id;
     const username = req.body.user.username;
     const password = req.body.user.password;
-    const role = req.body.user.role;
+    const role = req.body.user.role;*/
 
-    const user : User = { id, username, password , role};
+    const user:User = req.body
     try{
         const registration = await createUser(user);
         res.status(201).json(registration);
@@ -46,7 +46,6 @@ router.post("/register", async (req, res) => {
         console.log(err);
         res.status(401).json(err);
     }
-
 })
 
 router.post("/refresh-token", async (req, res) => {

@@ -7,6 +7,7 @@ import projectRoute from "./routes/project-route";
 import authRoute, {authenticateToken} from "./routes/auth-route";
 import dotenv from "dotenv";
 import cors from 'cors';
+import userRoute from "./routes/user-route";
 dotenv.config();
 const app = express()
 
@@ -37,6 +38,7 @@ app.use('/supplier',supplierRoute)
 app.use('/employee',employerRoute)
 app.use('/vehicle',vehicleRoute)
 app.use('/project',projectRoute)
+app.use('/user',userRoute)
 
 app.listen(3000,()=>{
     console.log('app server is running successfully !!')

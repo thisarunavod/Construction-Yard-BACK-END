@@ -6,7 +6,6 @@ const prisma = new PrismaClient();
 
 export async function createUser(user : User) {
     const hashedPassword = await bcrypt.hash(user.password, 10);
-
     const addedUser = await prisma.user.create({
         data: {
             user_id:user.id,
@@ -17,6 +16,26 @@ export async function createUser(user : User) {
     });
     console.log("User created:", addedUser);
 }
+export async function getAllUsers(){
+    console.log('awaaaaaaaaaaa')
+    const userList = await prisma.user.findMany({
+        where:{role:'Admin'}
+    })
+    console.log(userList)
+    return userList;
+}
+
+export async function deleteUser(id:string){
+    try {
+        await prisma.user.delete({
+            where:{user_id:id}
+        })
+    }catch (err){
+        throw err
+    }
+}
+
+
 
 export async function verifyUserCredentials(verifyUser:{username:string,password:string}) {
     try {
