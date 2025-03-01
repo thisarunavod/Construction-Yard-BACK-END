@@ -15,6 +15,7 @@ export async function addVehicle(v:Vehicle){
                 remove_or_working:v.remove_or_working
             }
         })
+        return addedVehicle
     }catch (err){
         throw err
     }

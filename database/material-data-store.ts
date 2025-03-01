@@ -68,6 +68,24 @@ export async function getAllMaterial(){
     }
 }
 
+export async function getMaterialReceivedDetails(id:string){
+    try {
+        return await  prisma.materialReceiveDetail.findUnique(
+            {where:{received_id:id}}
+        )
+    }catch (err){
+        throw err
+    }
+}
+
+export async function getAllMaterialReceivedDetails(){
+    try {
+        return await  prisma.materialReceiveDetail.findMany()
+    }catch (err){
+        throw err
+    }
+}
+
 export async function addMaterialReceivedDetails(details:MaterialReceivedDetails){
 
     const receivedDate = new Date(details.received_date)
@@ -87,7 +105,7 @@ export async function addMaterialReceivedDetails(details:MaterialReceivedDetails
             })
 
             // secondly update MaterialReceivedDetails
-            const receivedDetail = await tx.materialReceiveDetail.create({
+             const receivedDetail = await tx.materialReceiveDetail.create({
                 data:{
                     received_id:details.received_id,
                     sup_id:details.sup_id,
@@ -99,8 +117,10 @@ export async function addMaterialReceivedDetails(details:MaterialReceivedDetails
                     received_date:receivedDate.toISOString()
                 }
             })
-            return receivedDetail
         })
+
+        return await getMaterialReceivedDetails(details.received_id)
+
     }catch (err){
         throw err
     }

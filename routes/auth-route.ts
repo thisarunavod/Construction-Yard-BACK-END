@@ -70,12 +70,10 @@ export function authenticateToken(req : express.Request, res : express.Response,
 
     const authHeader = req.headers.authorization;
     const token = authHeader?.split(' ')[1];
-    // console.log(token);
     if(!token)res.status(401).send('No token provided');
 
     try{
         const payload = jwt.verify(token as string, process.env.SECRET_KEY as Secret) as {username: string, role:string, iat: number};
-        // console.log(payload.username);
         req.body.username = payload.username;
         next();
     }catch(err){

@@ -2,7 +2,7 @@ import express from "express";
 import Employee from "../model/Employee";
 import {
     addEmployee,
-    deleteEmployee,
+    deleteEmployee, getAllDrivers,
     getAllEmployee,
     getEmployee,
     updateEmployee
@@ -27,7 +27,7 @@ router.put('/updateEmployee/:id',async (req, res)=>{
     const updatingEmployee = req.body
     try {
         const updatedEmployer = await updateEmployee(id,updatingEmployee);
-        updatedEmployer ? res.status(204).json(updatedEmployer):res.status(404).send()
+        updatedEmployer ? res.status(200).json(updatedEmployer):res.status(404).send()
     }catch (err){
         res.status(500).send()
     }
@@ -36,7 +36,7 @@ router.delete('/deleteEmployee/:id',async (req, res)=>{
     const id = req.params.id
     try {
         await deleteEmployee(id)
-        res.status(204).send()
+        res.status(200).json(id)
     }catch (err){
         res.status(404).send()
     }
@@ -51,6 +51,17 @@ router.get('/getEmployee/:id',async (req, res)=>{
     }
 
 })
+
+router.get('/getAllDrivers',async (req, res)=>{
+    try {
+        const allDrivers= await getAllDrivers()
+        allDrivers != null ? res.json(allDrivers):res.status(404).send()
+
+    }catch (err){
+        res.status(400).send(err)
+    }
+})
+
 router.get('/getAllEmployees',async (req, res)=>{
     try {
         const allEmployees= await getAllEmployee()

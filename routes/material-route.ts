@@ -1,7 +1,7 @@
 import express from "express";
 import {
     addMaterialReceivedDetails,
-    getAllMaterial,
+    getAllMaterial, getAllMaterialReceivedDetails,
     getMaterial,
     materialAdd,
     materialDelete,
@@ -87,13 +87,22 @@ router.post('/addMaterialReceivedDetails',async(req, res)=>{
     const addingMRDetails:MaterialReceivedDetails = req.body
     console.log(addingMRDetails.received_date)
     try {
-        await addMaterialReceivedDetails(addingMRDetails)
-        res.status(201).send()
+        const details = await addMaterialReceivedDetails(addingMRDetails)
+        res.status(200).json(details)
     }  catch (err){
         res.status(500).json(err)
     }
 })
 
+
+router.get('/getAllMaterialReceivedDetails',async(req, res)=>{
+    try {
+        const detailsList = await getAllMaterialReceivedDetails()
+        res.status(200).json(detailsList)
+    }  catch (err){
+        res.status(500).json(err)
+    }
+})
 
 
 export default router
