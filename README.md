@@ -40,5 +40,3 @@ cd Construction-Yard-BACK-END
 # Install dependencies
 npm install
 
-# Set up environment variables (copy .env.example to .env)
-cp .env.example .env
