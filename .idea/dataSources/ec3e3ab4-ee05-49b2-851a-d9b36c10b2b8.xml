@@ -1121,7 +1121,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="308" parent="1" name="YardDB">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-02-11.03:22:52</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-02-26.04:47:31</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="309" parent="1" name="debian-sys-maint">
@@ -1175,382 +1175,424 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="321" parent="308" name="Vehicle">
+    <table id="321" parent="308" name="User">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <column id="322" parent="314" name="e_id">
+    <table id="322" parent="308" name="Vehicle">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <column id="323" parent="314" name="e_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <column id="323" parent="314" name="e_name">
+    <column id="324" parent="314" name="e_name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(25)|0s</StoredType>
     </column>
-    <column id="324" parent="314" name="e_address">
+    <column id="325" parent="314" name="e_address">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="325" parent="314" name="job_title">
+    <column id="326" parent="314" name="job_title">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(15)|0s</StoredType>
     </column>
-    <column id="326" parent="314" name="availability">
+    <column id="327" parent="314" name="availability">
       <Position>5</Position>
       <StoredType>varchar(5)|0s</StoredType>
     </column>
-    <index id="327" parent="314" name="PRIMARY">
+    <index id="328" parent="314" name="PRIMARY">
       <ColNames>e_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="328" parent="314" name="PRIMARY">
+    <key id="329" parent="314" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="329" parent="315" name="received_id">
+    <column id="330" parent="315" name="received_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <column id="330" parent="315" name="sup_id">
+    <column id="331" parent="315" name="sup_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="331" parent="315" name="m_id">
+    <column id="332" parent="315" name="m_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="332" parent="315" name="material_name">
+    <column id="333" parent="315" name="material_name">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="333" parent="315" name="type">
+    <column id="334" parent="315" name="type">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>varchar(30)|0s</StoredType>
     </column>
-    <column id="334" parent="315" name="received_qty">
+    <column id="335" parent="315" name="received_qty">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>float|0s</StoredType>
     </column>
-    <column id="335" parent="315" name="unit">
+    <column id="336" parent="315" name="unit">
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <column id="336" parent="315" name="received_date">
+    <column id="337" parent="315" name="received_date">
       <Position>8</Position>
       <StoredType>datetime(3)|0s</StoredType>
     </column>
-    <foreign-key id="337" parent="315" name="MaterialReceiveDetail_sup_id_fkey">
+    <foreign-key id="338" parent="315" name="MaterialReceiveDetail_sup_id_fkey">
       <ColNames>sup_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>sup_id</RefColNames>
       <RefTableName>Supplier</RefTableName>
     </foreign-key>
-    <foreign-key id="338" parent="315" name="MaterialReceiveDetail_m_id_fkey">
+    <foreign-key id="339" parent="315" name="MaterialReceiveDetail_m_id_fkey">
       <ColNames>m_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>material_id</RefColNames>
       <RefTableName>RawMaterial</RefTableName>
     </foreign-key>
-    <index id="339" parent="315" name="PRIMARY">
+    <index id="340" parent="315" name="PRIMARY">
       <ColNames>received_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="340" parent="315" name="MaterialReceiveDetail_sup_id_fkey">
+    <index id="341" parent="315" name="MaterialReceiveDetail_sup_id_fkey">
       <ColNames>sup_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="341" parent="315" name="MaterialReceiveDetail_m_id_fkey">
+    <index id="342" parent="315" name="MaterialReceiveDetail_m_id_fkey">
       <ColNames>m_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="342" parent="315" name="PRIMARY">
+    <key id="343" parent="315" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="343" parent="316" name="issue_id">
+    <column id="344" parent="316" name="issue_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(6)|0s</StoredType>
     </column>
-    <column id="344" parent="316" name="m_id">
+    <column id="345" parent="316" name="m_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="345" parent="316" name="project_no">
+    <column id="346" parent="316" name="project_no">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="346" parent="316" name="issue_qty">
+    <column id="347" parent="316" name="issue_qty">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>float|0s</StoredType>
     </column>
-    <column id="347" parent="316" name="v_id">
+    <column id="348" parent="316" name="v_id">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>varchar(15)|0s</StoredType>
     </column>
-    <column id="348" parent="316" name="issue_date">
+    <column id="349" parent="316" name="issue_date">
       <Position>6</Position>
       <StoredType>datetime(3)|0s</StoredType>
     </column>
-    <foreign-key id="349" parent="316" name="MaterialSendDetail_m_id_fkey">
+    <foreign-key id="350" parent="316" name="MaterialSendDetail_m_id_fkey">
       <ColNames>m_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>material_id</RefColNames>
       <RefTableName>RawMaterial</RefTableName>
     </foreign-key>
-    <foreign-key id="350" parent="316" name="MaterialSendDetail_project_no_fkey">
+    <foreign-key id="351" parent="316" name="MaterialSendDetail_project_no_fkey">
       <ColNames>project_no</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>project_no</RefColNames>
       <RefTableName>Project</RefTableName>
     </foreign-key>
-    <foreign-key id="351" parent="316" name="MaterialSendDetail_v_id_fkey">
+    <foreign-key id="352" parent="316" name="MaterialSendDetail_v_id_fkey">
       <ColNames>v_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>v_id</RefColNames>
       <RefTableName>Vehicle</RefTableName>
     </foreign-key>
-    <index id="352" parent="316" name="PRIMARY">
+    <index id="353" parent="316" name="PRIMARY">
       <ColNames>issue_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="353" parent="316" name="MaterialSendDetail_m_id_fkey">
+    <index id="354" parent="316" name="MaterialSendDetail_m_id_fkey">
       <ColNames>m_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="354" parent="316" name="MaterialSendDetail_project_no_fkey">
+    <index id="355" parent="316" name="MaterialSendDetail_project_no_fkey">
       <ColNames>project_no</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="355" parent="316" name="MaterialSendDetail_v_id_fkey">
+    <index id="356" parent="316" name="MaterialSendDetail_v_id_fkey">
       <ColNames>v_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="356" parent="316" name="PRIMARY">
+    <key id="357" parent="316" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="357" parent="317" name="project_no">
+    <column id="358" parent="317" name="project_no">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(191)|0s</StoredType>
     </column>
-    <column id="358" parent="317" name="project_name">
+    <column id="359" parent="317" name="project_name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(75)|0s</StoredType>
     </column>
-    <column id="359" parent="317" name="location">
+    <column id="360" parent="317" name="location">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(75)|0s</StoredType>
     </column>
-    <column id="360" parent="317" name="start_date">
+    <column id="361" parent="317" name="start_date">
       <Position>4</Position>
       <StoredType>datetime(3)|0s</StoredType>
     </column>
-    <column id="361" parent="317" name="completion_date">
+    <column id="362" parent="317" name="completion_date">
       <Position>5</Position>
       <StoredType>datetime(3)|0s</StoredType>
     </column>
-    <index id="362" parent="317" name="PRIMARY">
+    <index id="363" parent="317" name="PRIMARY">
       <ColNames>project_no</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="363" parent="317" name="PRIMARY">
+    <key id="364" parent="317" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="364" parent="318" name="project_no">
+    <column id="365" parent="318" name="project_no">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="365" parent="318" name="project_name">
+    <column id="366" parent="318" name="project_name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(75)|0s</StoredType>
     </column>
-    <column id="366" parent="318" name="m_id">
+    <column id="367" parent="318" name="m_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="367" parent="318" name="issue_qty">
+    <column id="368" parent="318" name="issue_qty">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>float|0s</StoredType>
     </column>
-    <column id="368" parent="318" name="required_qty">
+    <column id="369" parent="318" name="required_qty">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>float|0s</StoredType>
     </column>
-    <column id="369" parent="318" name="unit">
+    <column id="370" parent="318" name="unit">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <foreign-key id="370" parent="318" name="ProjectMaterialRequirements_project_no_fkey">
+    <foreign-key id="371" parent="318" name="ProjectMaterialRequirements_project_no_fkey">
       <ColNames>project_no</ColNames>
       <RefColNames>project_no</RefColNames>
       <RefTableName>Project</RefTableName>
     </foreign-key>
-    <foreign-key id="371" parent="318" name="ProjectMaterialRequirements_m_id_fkey">
+    <foreign-key id="372" parent="318" name="ProjectMaterialRequirements_m_id_fkey">
       <ColNames>m_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>material_id</RefColNames>
       <RefTableName>RawMaterial</RefTableName>
     </foreign-key>
-    <index id="372" parent="318" name="PRIMARY">
+    <index id="373" parent="318" name="PRIMARY">
       <ColNames>project_no
 m_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="373" parent="318" name="ProjectMaterialRequirements_m_id_fkey">
+    <index id="374" parent="318" name="ProjectMaterialRequirements_m_id_fkey">
       <ColNames>m_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="374" parent="318" name="PRIMARY">
+    <key id="375" parent="318" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="375" parent="319" name="material_id">
+    <column id="376" parent="319" name="material_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="376" parent="319" name="material_name">
+    <column id="377" parent="319" name="material_name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="377" parent="319" name="type">
+    <column id="378" parent="319" name="type">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(30)|0s</StoredType>
     </column>
-    <column id="378" parent="319" name="qty_available">
+    <column id="379" parent="319" name="qty_available">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>float|0s</StoredType>
     </column>
-    <column id="379" parent="319" name="unit">
+    <column id="380" parent="319" name="unit">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <index id="380" parent="319" name="PRIMARY">
+    <index id="381" parent="319" name="PRIMARY">
       <ColNames>material_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="381" parent="319" name="PRIMARY">
+    <key id="382" parent="319" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="382" parent="320" name="sup_id">
+    <column id="383" parent="320" name="sup_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="383" parent="320" name="company_name">
+    <column id="384" parent="320" name="company_name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="384" parent="320" name="company_email">
+    <column id="385" parent="320" name="company_email">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <index id="385" parent="320" name="PRIMARY">
+    <index id="386" parent="320" name="PRIMARY">
       <ColNames>sup_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="386" parent="320" name="PRIMARY">
+    <key id="387" parent="320" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="387" parent="321" name="v_name">
+    <column id="388" parent="321" name="user_id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>varchar(191)|0s</StoredType>
+    </column>
+    <column id="389" parent="321" name="user_name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(191)|0s</StoredType>
+    </column>
+    <column id="390" parent="321" name="role">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(191)|0s</StoredType>
+    </column>
+    <column id="391" parent="321" name="password">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(191)|0s</StoredType>
+    </column>
+    <index id="392" parent="321" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="393" parent="321" name="User_user_name_key">
+      <ColNames>user_name</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="394" parent="321" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="395" parent="321" name="User_user_name_key">
+      <UnderlyingIndexName>User_user_name_key</UnderlyingIndexName>
+    </key>
+    <column id="396" parent="322" name="v_name">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="388" parent="321" name="v_id">
+    <column id="397" parent="322" name="v_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(15)|0s</StoredType>
     </column>
-    <column id="389" parent="321" name="e_id">
+    <column id="398" parent="322" name="e_id">
       <Position>3</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <column id="390" parent="321" name="root_status">
+    <column id="399" parent="322" name="root_status">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(25)|0s</StoredType>
     </column>
-    <column id="391" parent="321" name="driver_availability">
+    <column id="400" parent="322" name="driver_availability">
       <Position>5</Position>
       <StoredType>varchar(5)|0s</StoredType>
     </column>
-    <column id="392" parent="321" name="remove_or_working">
+    <column id="401" parent="322" name="remove_or_working">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <foreign-key id="393" parent="321" name="Vehicle_e_id_fkey">
+    <foreign-key id="402" parent="322" name="Vehicle_e_id_fkey">
       <ColNames>e_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>e_id</RefColNames>
       <RefTableName>Employee</RefTableName>
     </foreign-key>
-    <index id="394" parent="321" name="PRIMARY">
+    <index id="403" parent="322" name="PRIMARY">
       <ColNames>v_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="395" parent="321" name="Vehicle_e_id_fkey">
+    <index id="404" parent="322" name="Vehicle_e_id_fkey">
       <ColNames>e_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="396" parent="321" name="PRIMARY">
+    <key id="405" parent="322" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

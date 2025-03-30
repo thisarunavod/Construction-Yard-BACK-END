@@ -1,24 +1,51 @@
 import {PrismaClient} from "@prisma/client";
 import Project from "../model/Project";
+import {getMaterialReceivedDetails} from "./material-data-store";
+import ProjectDetails from "../model/projectDetails";
+import {MaterialRequirement} from "../model/MaterialRequirement";
+import {json} from "node:stream/consumers";
+import MaterialSendDetails from "../model/materialSendDetails";
 
 const prisma = new PrismaClient()
 
 
-export async function addProject (p:Project){
-    const startDate = new Date(p.start_date!)
-    const completionDate = new Date(p.completion_date!)
+export async function addProject (newProject:ProjectDetails){
+    const startDate = new Date(newProject.start_date)
+    const completionDate = new Date(newProject.completion_date)
+    console.log(newProject)
 
-    try {
-        const project = await prisma.project.create({
-            data:{
-                project_no:p.project_no,
-                project_name:p.project_name,
-                location:p.location,
-                start_date:startDate.toISOString(),
-                completion_date:completionDate.toISOString(),
-            }
+    try{
+        const addedProject = await prisma.$transaction(async(tx)=>{
+            //  firstly add Project
+            const project = await tx.project.create({
+                data:{
+                    project_no:newProject.project_no,
+                    project_name:newProject.project_name,
+                    location:newProject.location,
+                    start_date:startDate.toISOString(),
+                    completion_date:completionDate.toISOString(),
+                }
+            })
+
+            // secondly Add Material requirements
+            await Promise.all(
+                newProject.requirements.map(async (requirement) => {
+                    await tx.projectMaterialRequirements.create({
+                        data: {
+                            project_no: newProject.project_no,
+                            project_name: newProject.project_name,
+                            m_id: requirement.material_id,
+                            issue_qty: requirement.issue_qty,
+                            required_qty: requirement.required_qty,
+                            unit: requirement.unit,
+                        },
+                    });
+                })
+            );
         })
-        return project
+
+        return await getProject(newProject.project_no)
+
     }catch (err){
         console.log(err)
         throw err
@@ -58,6 +85,7 @@ export async function getProject (pNo:string){
         throw err
     }
 }
+
 export async function getAllProject (){
     try {
         return await prisma.project.findMany()
@@ -65,3 +93,27 @@ export async function getAllProject (){
         throw err
     }
 }
+
+export async function getAllProjectMaterialRequirements (){
+    try {
+        return await prisma.projectMaterialRequirements.findMany()
+    }catch (err){
+        throw err
+    }
+}
+
+export async function getRequirement(details:MaterialSendDetails){
+    try {
+        return await prisma.projectMaterialRequirements.findFirst({
+            where: {
+                project_no:details.project_no,
+                m_id:details.m_id
+            },
+        })
+    }catch (err){
+        throw err
+    }
+}
+
+
+

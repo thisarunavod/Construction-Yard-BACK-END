@@ -27,6 +27,8 @@ export async function updateEmployee(id:string , e:Employee){
             data:{
                 e_name:e.e_name,
                 e_address:e.e_address,
+                job_title:e.job_title,
+                availability:e.availability
             }
         })
         return updateEmployer
@@ -54,6 +56,16 @@ export  async function getEmployee(id:string){
 export async function getAllEmployee(){
     try {
         return await prisma.employee.findMany()
+    }catch (err){
+        throw err
+    }
+}
+
+export async function getAllDrivers(){
+    try {
+        return await prisma.employee.findMany({
+            where:{job_title:"DRIVER"}
+        })
     }catch (err){
         throw err
     }

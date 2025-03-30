@@ -1,4 +1,3 @@
-
 export default class Vehicle{
     v_name!:string
     v_id!:string
